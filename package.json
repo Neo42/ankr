@@ -7,7 +7,7 @@
     "dev": "webpack --watch --mode development ./ankrmanager/frontend/src/index.js --output ./ankrmanager/frontend/static/frontend/main.js",
     "build": "webpack --mode production ./ankrmanager/frontend/src/index.js --output ./ankrmanager/frontend/static/frontend/main.js",
     "start": "nodemon -w webpack.config.js -x webpack-dev-server --hot",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick staged"
   },
   "keywords": [],
   "author": "",
