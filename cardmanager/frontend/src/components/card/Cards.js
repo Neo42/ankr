@@ -13,39 +13,36 @@ class Cards extends Component {
     this.props.deleteCard(id);
   }
 
-
   render() {
     return (
       <>
-        <h2>Cards</h2>
-        <table>
+        <h2>全部卡片</h2>
+        <table className="table table-striped">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Message</th>
-              <th>
-                {' '}
-              </th>
+              <th>序号</th>
+              <th>正面</th>
+              <th>反面</th>
+              <th>怎么记</th>
+              <th>编辑</th>
             </tr>
           </thead>
           <tbody>
             {this.props.cards.map(({
-              id, name, email, message,
+              id, face, back, trick,
             }) => (
               <tr key={id}>
                 <td>{id}</td>
-                <td>{name}</td>
-                <td>{email}</td>
-                <td>{message}</td>
+                <td>{face}</td>
+                <td>{back}</td>
+                <td>{trick}</td>
                 <td>
                   <button
                     onClick={() => this.handleClick(id)}
                     type="button"
                     className="btn btn-danger btn-sm"
                   >
-                    Delete
+                    删除
                   </button>
                 </td>
               </tr>

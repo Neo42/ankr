@@ -1,4 +1,4 @@
-import { GET_ANKRS, DELETE_ANKR, ADD_ANKR } from '../actions/types.js';
+import { GET_CARDS, DELETE_CARD, ADD_CARD } from '../actions/types.js';
 
 const initialState = {
   cards: [],
@@ -6,17 +6,17 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_ANKRS:
+    case GET_CARDS:
       return {
         ...state,
         cards: action.payload,
       };
-    case DELETE_ANKR:
+    case DELETE_CARD:
       return {
         ...state,
         cards: state.cards.filter(({ id }) => id !== action.payload),
       };
-    case ADD_ANKR:
+    case ADD_CARD:
       return {
         ...state,
         cards: [...state.cards, action.payload],

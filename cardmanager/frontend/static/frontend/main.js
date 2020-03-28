@@ -101,13 +101,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types */ "./cardmanager/frontend/src/actions/types.js");
 
- // GET ANKRS
+ // GET CARDS
 
 var getCards = function getCards() {
   return function (dispatch) {
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/card/').then(function (res) {
       dispatch({
-        type: _types__WEBPACK_IMPORTED_MODULE_1__["GET_ANKRS"],
+        type: _types__WEBPACK_IMPORTED_MODULE_1__["GET_CARDS"],
         payload: res
       });
     })["catch"](function (err) {
@@ -123,14 +123,14 @@ var m = 1;
 /*!***************************************************!*\
   !*** ./cardmanager/frontend/src/actions/types.js ***!
   \***************************************************/
-/*! exports provided: GET_ANKRS, one */
+/*! exports provided: GET_CARDS, one */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ANKRS", function() { return GET_ANKRS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_CARDS", function() { return GET_CARDS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "one", function() { return one; });
-var GET_ANKRS = 'GET_ANKRS';
+var GET_CARDS = 'GET_CARDS';
 var one = 1;
 
 /***/ }),
@@ -551,7 +551,7 @@ var initialState = {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
-    case _actions_types_js__WEBPACK_IMPORTED_MODULE_0__["GET_ANKRS"]:
+    case _actions_types_js__WEBPACK_IMPORTED_MODULE_0__["GET_CARDS"]:
       return _objectSpread({}, state, {
         cards: action.payload
       });

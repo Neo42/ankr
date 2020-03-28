@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from card.models import Card
+from cards.models import Card
 
 
 # Card Serailizer

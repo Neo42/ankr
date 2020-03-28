@@ -8,65 +8,64 @@ import { addCard } from '../../actions/cards';
 
 class Form extends Component {
   state = {
-    name: '',
-    email: '',
-    message: '',
+    face: '',
+    back: '',
+    trick: '',
   }
 
 onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
 onSubmit = (e) => {
   e.preventDefault();
-  const { name, email, message } = this.state;
-  const card = { name, email, message };
+  const { face, back, trick } = this.state;
+  const card = { face, back, trick };
   this.props.addCard(card);
-  console.log('Submit');
   this.setState({
-    name: '',
-    email: '',
-    message: '',
+    face: '',
+    back: '',
+    trick: '',
   });
 }
 
 render() {
-  const { name, email, message } = this.state;
+  const { face, back, trick } = this.state;
   return (
     <div className="card card-body mt-4 mb-4">
-      <h2>Add Card</h2>
+      <h2>添加卡片</h2>
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
           <label>
-            Name
+            正面
             <input
               type="text"
-              name="name"
+              name="face"
               className="form-control"
               onChange={this.onChange}
-              value={name}
+              value={face}
             />
           </label>
         </div>
         <div className="form-group">
           <label>
-            email
+            背面
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="back"
               className="form-control"
               onChange={this.onChange}
-              value={email}
+              value={back}
             />
           </label>
         </div>
         <div className="form-group">
           <label>
-            Message
+            怎么记
             <textarea
               type="text"
-              name="message"
+              name="trick"
               className="form-control"
               onChange={this.onChange}
-              value={message}
+              value={trick}
             />
           </label>
         </div>
@@ -75,7 +74,7 @@ render() {
             className="btn btn-primary"
             type="submit"
           >
-            Submit
+            生成卡片
           </button>
         </div>
       </form>

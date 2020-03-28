@@ -1,41 +1,49 @@
 import axios from 'axios';
+import { createMessage, returnErrors } from './messages';
+import { tokenConfig } from './auth';
 
-import { GET_ANKRS, DELETE_ANKR, ADD_ANKR } from './types';
+import {
+  GET_CARDS, DELETE_CARD, ADD_CARD,
+} from './types';
 
-// GET ANKRS
-export const getCards = () => (dispatch) => {
+// GET CARDS
+export const getCards = () => (dispatch, getState) => {
   axios
-    .get('/api/card/')
+    .get('/api/cards/', tokenConfig(getState))
     .then((res) => {
       dispatch({
-        type: GET_ANKRS,
+        type: GET_CARDS,
         payload: res.data,
       });
-    }).catch(console.log);
+    }).catch((err) => dispatch(returnErrors(err.response.data, err.response.status)));
 };
 
-// DELETE ANKR
-export const deleteCard = (id) => (dispatch) => {
+// DELETE CARD
+export const deleteCard = (id) => (dispatch, getState) => {
   axios
-    .delete(`/api/card/${id}`)
+    .delete(`/api/cards/${id}`, tokenConfig(getState))
     .then((res) => {
+      dispatch(createMessage({
+        deleteCard: '卡片已删除',
+      }));
       dispatch({
-        type: DELETE_ANKR,
+        type: DELETE_CARD,
         payload: id,
       });
     }).catch(console.log);
 };
 
-// ADD ANKR
-export const addCard = (card) => (dispatch) => {
+// ADD CARD
+export const addCard = (card) => (dispatch, getState) => {
   axios
-    .post('/api/card/', card)
+    .post('/api/cards/', card, tokenConfig(getState))
     .then((res) => {
+      dispatch(createMessage({
+        addCard: '卡片已添加',
+      }));
       dispatch({
-        type: ADD_ANKR,
+        type: ADD_CARD,
         payload: res.data,
       });
-    }).catch(console.log);
+    }).catch((err) => dispatch(returnErrors(err.response.data, err.response.status)));
 };
-
-export const m = 1;
