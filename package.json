@@ -1,11 +1,11 @@
 {
-  "name": "ankr_manager_react_django",
+  "name": "card_manager_react_django",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --watch --mode development ./ankrmanager/frontend/src/index.js --output ./ankrmanager/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./ankrmanager/frontend/src/index.js --output ./ankrmanager/frontend/static/frontend/main.js",
+    "dev": "webpack --watch --mode development ./cardmanager/frontend/src/index.js --output ./cardmanager/frontend/static/frontend/main.js",
+    "build": "webpack --mode production ./cardmanager/frontend/src/index.js --output ./cardmanager/frontend/static/frontend/main.js",
     "start": "nodemon -w webpack.config.js -x webpack-dev-server --hot",
     "precommit": "pretty-quick staged"
   },
@@ -16,6 +16,7 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^3.4.2",
@@ -36,8 +37,14 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   }
 }

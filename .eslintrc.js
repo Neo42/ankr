@@ -20,12 +20,12 @@ module.exports = {
   },
   plugins: [
     'react',
-    'prettier',
   ],
   rules: {
-    "prettier/prettier": "error",
     "import/extensions": "off",
     "react/jsx-filename-extension": "off",
-    "react/prefer-stateless-function": "off"
-  },
+    "react/prefer-stateless-function": "off",
+    "no-console": "off"
+  }, 
+  "parser": "babel-eslint"
 };
