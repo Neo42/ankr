@@ -1,3 +1,4 @@
+
 module.exports = {
   devServer: {
     contentBase: './cardmanager/frontend/static/frontend',
